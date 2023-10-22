@@ -30,7 +30,6 @@ if '%errorlevel%' NEQ '0' (
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v UseOLEDTaskbarTransparency /t REG_DWORD /d 1 
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ForceEffectMode /t REG_DWORD /d 1 
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v JPEGImportQuality /t REG_DWORD /d 64
-echo PC will restart after pressing anykey to apply changes.
+echo PC restart 10 seconds after pressing any key!
 pause
-echo Restarting in 5 seconds
-shutdown -t 5 -r
+shutdown -t 10 -r
