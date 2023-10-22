@@ -27,9 +27,13 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------    
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v UseOLEDTaskbarTransparency /t REG_DWORD /d 00000001
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ForceEffectMode /t REG_DWORD /d 00000001 
-reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v JPEGImportQuality /t REG_DWORD /d 00000064
-echo PC restart after pressing any key!
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v UseOLEDTaskbarTransparency /t REG_DWORD /d 1
+echo UseOLEDTaskbarTransparency added
 pause
-shutdown -t 1 -r
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ForceEffectMode /t REG_DWORD /d 1 
+echo ForceEffectMode added
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v JPEGImportQuality /t REG_DWORD /d 100
+echo JPEGImportQuality added
+echo Sign out after pressing any key to apply changes!
+pause
+shutdown -l
